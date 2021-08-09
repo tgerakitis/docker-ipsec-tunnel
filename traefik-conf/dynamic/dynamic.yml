@@ -1,0 +1,15 @@
+tcp:
+  # https://doc.traefik.io/traefik/routing/routers/#rule_1
+  routers:
+    smtp-router:
+      rule: "HostSNI(`*`)"
+      entryPoints:
+        - smtp
+      service: smtp-service
+
+  # https://doc.traefik.io/traefik/routing/routers/#services
+  services:
+    smtp-service:
+      loadBalancer:
+        servers:
+          - address: 10.0.0.1:25 # replace with your target IP & service port

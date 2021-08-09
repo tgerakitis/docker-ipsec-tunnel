@@ -1,0 +1,16 @@
+# https://doc.traefik.io/traefik/routing/entrypoints/
+entryPoints:
+  smtp:
+    address: ":1025" # the port that listens within the docker network
+
+accessLog: {}
+
+providers:
+  file:
+    directory: /traefik-conf/dynamic/
+    # I use dynamic configurations for local development
+    watch: true
+
+api:
+  dashboard: true
+  insecure: true

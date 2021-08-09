@@ -1,0 +1,12 @@
+version: '2.4'
+services:
+  vpn-tunnel:
+    build:
+      context: .
+    volumes:
+      - "./traefik-conf/dynamic:/traefik-conf/dynamic/"
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "1025:1025"
+      - "8080:8080"

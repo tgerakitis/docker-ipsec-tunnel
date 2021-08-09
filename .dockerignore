@@ -1,0 +1,4 @@
+*
+!strongswan/*
+!traefik-conf/*
+!docker-entrypoint.sh
